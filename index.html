@@ -15,33 +15,47 @@
             height: 100%;
             scroll-snap-type: y mandatory; /* Sayfa kaydırma efektini sağlar */
             overflow-y: scroll;
-            background-color: black; /* Arka plan siyah, resim dışında boşluk varsa */
+            background-color: black; /* Kenarlarda boşluk kalırsa siyah olur */
+        }
+        .container {
+            width: 100%;
+            height: 200vh; /* İki resim için toplam yüksekliği ayarla */
+            position: relative;
         }
         .section {
             width: 100%;
-            height: 100vh; /* Her bölüm tam ekran olacak */
+            height: 100vh; /* Her resim tam ekran olacak */
+            position: absolute;
+            left: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            scroll-snap-align: start;
+        }
+        .menu1 {
+            top: 0; /* İlk resim sayfanın en üstüne yerleşsin */
+        }
+        .menu2 {
+            top: 100vh; /* İkinci resim tam aşağıda başlasın */
         }
         img {
             max-width: 100%;
             max-height: 100%;
-            object-fit: contain; /* Resmi kırpmadan ekrana sığdırır */
+            object-fit: contain; /* Kırpma yapmadan sığdırır */
         }
     </style>
 </head>
 <body>
 
-    <!-- İlk Görsel -->
-    <div class="section">
-        <img src="menu1.png" alt="Menü 1">
-    </div>
+    <div class="container">
+        <!-- İlk Görsel -->
+        <div class="section menu1">
+            <img src="menu1.png" alt="Menü 1">
+        </div>
 
-    <!-- İkinci Görsel -->
-    <div class="section">
-        <img src="menu2.png" alt="Menü 2">
+        <!-- İkinci Görsel -->
+        <div class="section menu2">
+            <img src="menu2.png" alt="Menü 2">
+        </div>
     </div>
 
 </body>
